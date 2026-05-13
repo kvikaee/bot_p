@@ -32,16 +32,21 @@ def create_main_keyboard():
     return keyboard
 
 def create_problem_keyboard():
-    """Клавиатура выбора социальной проблемы"""
     keyboard = VkKeyboard(one_time=False)
     problems = [
-        "Помощь людям с инвалидностью", "Помощь бездомным", "Детям-сиротам",
-        "Трудные подростки", "Пожилые люди", "Экология", "Животные",
-        "Паллиативная помощь / профилактика заболеваний"
+        "Помощь людям с инвалидностью",
+        "Помощь бездомным",
+        "Детям-сиротам",
+        "Трудные подростки",
+        "Пожилые люди",
+        "Экология",
+        "Животные",
+        "Паллиативная помощь / профилактика"   # ← сокращено
     ]
-    for problem in problems:
+    for i, problem in enumerate(problems):
         keyboard.add_button(problem, color=VkKeyboardColor.SECONDARY)
-        keyboard.add_line()
+        if i != len(problems) - 1:
+            keyboard.add_line()
     return keyboard
 
 def create_help_format_keyboard():
